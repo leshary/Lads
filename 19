@@ -1,0 +1,39 @@
+#include "pch.h"
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int s, n, m, a, flag;
+	s = n = flag = 0;
+	cin >> m>>a;
+	if (a < 0)
+		flag++;
+	while (m != n)
+	{   
+		cin >> a;
+		if (flag > 1 and a > 0)
+			break;
+		if ( a<0 )
+		{
+			if (flag == 0)
+			{
+				s = a;
+				n++;
+			}
+			else
+				s += a;
+			flag++;
+		}
+		else
+		{
+			if (flag > 0)
+				n++;
+			flag = 0;
+		}
+	}
+	if (n == m and s == a)
+		s = 0;
+    cout << s; 
+	return 0;
+}
